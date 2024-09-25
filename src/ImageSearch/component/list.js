@@ -14,7 +14,7 @@ const ImageList = ({ images }) => {
           key={image.id}
           src={image.webformatURL}
           alt={image.tags}
-          style={{ width: "50%", height: "175px",}}/>
+          style={{ width: "50%", height: "175px", borderRadius:"20px",}}/>
       ))}
         </ul>
       ) : (
