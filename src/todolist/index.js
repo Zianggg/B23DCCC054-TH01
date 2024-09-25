@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import TodoList from "./component/item";
+import TodoList from "./component/list";
 
-const TDL = () => {
+const ToDoList = () => {
   const [todos, setTodos] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [isEdit, setIsEdit] = useState(false);
@@ -77,4 +77,4 @@ const TDL = () => {
   );
 };
 
-export default TDL;
+export default ToDoList;

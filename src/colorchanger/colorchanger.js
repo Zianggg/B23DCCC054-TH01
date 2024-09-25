@@ -50,8 +50,7 @@ const RandomColor = () => {
   return (
     <div
       style={{
-        padding: 24,
-
+        padding: 23,
         margin: 24,
         width: 500,
         paddingRight: 24,

@@ -1,54 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
+import TodoItem from "./item";
 
-const TodoItem = ({
-  isEdit,
+const TodoList = ({
   editTodo,
+  isEdit,
   setIsEdit,
-  todo,
-  index,
+  todos,
   toggleTodo,
   deleteTodo,
 }) => {
-  const [valueInput, setValueInput] = useState(todo.text);
-
   return (
-    <li style={{ textDecoration: todo.completed ? "line-through" : "none" }}>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        <div>
-          <input onClick={() => toggleTodo(index)} type="checkbox"></input>
-        </div>
-        {!isEdit ? (
-          <div>{todo.text}</div>
-        ) : (
-          <input
-            onChange={(e) => {
-              setValueInput(e.target.value);
-            }}
-            defaultValue={todo.text}
-          />
-        )}
-        <div>
-          <button
-            onClick={() => {
-              if (isEdit) {
-                editTodo(index, valueInput);
-              }
-              setIsEdit(!isEdit);
-            }}
-          >
-            {isEdit ? "Lưu lại" : "Chỉnh sửa"}
-          </button>
-          <button onClick={() => deleteTodo(index)}>Xóa</button>
-        </div>
-      </div>
-    </li>
+    <ul>
+      {todos.map((todo, index) => (
+        <TodoItem
+          editTodo={editTodo}
+          isEdit={isEdit}
+          setIsEdit={setIsEdit}
+          key={index}
+          todo={todo}
+          index={index}
+          toggleTodo={toggleTodo}
+          deleteTodo={deleteTodo}
+        />
+      ))}
+    </ul>
   );
 };
 
-export default TodoItem;
+export default TodoList;
